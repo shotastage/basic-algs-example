@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 {
     using namespace std;
 
-    int numbers[10] = {1, 4, 6, 7, 2, 9, 3, 21, 10, 11};
+    int numbers[10] = {21, 1, 4, 10, 6, 7, 2, 9, 3, 11};
 
     // Before sort log
     cout << "Before sort: ";
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     int arrysize = sizeof(numbers)/sizeof(numbers[0]);
     for (int i = 0; i < arrysize-1; i++) {
         for (int j = 0; j < arrysize-i-1; j++) {
-            if (numbers[j] != numbers[j + 1]) {
+            if (numbers[j] > numbers[j + 1]) {
                 numbers[j] = numbers[j] ^ numbers[j + 1];
                 numbers[j + 1] = numbers[j] ^ numbers[j + 1];
                 numbers[j] = numbers[j] ^ numbers[j + 1];
