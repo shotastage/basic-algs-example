@@ -1,24 +1,23 @@
 #include <iostream>
 
-
-int main(int argc, char *argv[])
-{
+int main() {
     using namespace std;
 
-    int numbers[10] = {21, 1, 4, 10, 6, 7, 2, 9, 3, 11};
+    int numbers[] = {21, 1, 1, 10, 6, 7, 12, 9, 3, 31};
+    int arrysize = sizeof(numbers)/sizeof(numbers[0]);
 
     // Before sort log
     cout << "Before sort: ";
-    for(int i = 0; i < 10; i++) {
+    for(int i = 0; i < arrysize; i++) {
         cout << numbers[i] << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     // Main sort procedure
-    int arrysize = sizeof(numbers)/sizeof(numbers[0]);
     for (int i = 0; i < arrysize-1; i++) {
         for (int j = 0; j < arrysize-i-1; j++) {
             if (numbers[j] > numbers[j + 1]) {
+                // XOR swap without using extra memory
                 numbers[j] = numbers[j] ^ numbers[j + 1];
                 numbers[j + 1] = numbers[j] ^ numbers[j + 1];
                 numbers[j] = numbers[j] ^ numbers[j + 1];
@@ -28,10 +27,10 @@ int main(int argc, char *argv[])
 
     // Show sort result
     cout << "After sort:  ";
-    for(int i = 0; i < 10; i++) {
-        std::cout << numbers[i] << " ";
+    for(int i = 0; i < arrysize; i++) {
+        cout << numbers[i] << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     return 0;
 }
